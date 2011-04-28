@@ -6,7 +6,10 @@
     * finished it, then I started to make this one, in a complete different 
     * way of coding. Just check the code of Space Invaders and then check this
     * one. I think this is more clean and professional, well documented following
-    * JSDOC, and maybe using some of the best parts of this language.
+    * JSDOC, and maybe using some of the best parts of this language. Carlos Benítez
+    * from www.etnassoft.com helped me a lot "forcing" me to do the functions and 
+    * methods in the correct way and to document it right. And also helped me solving
+    * closures problems and hoisting problems.
     *
     * Current Status:
     * Playable. There are several bugs.
