@@ -1,4 +1,4 @@
-/**
+    /**
     * Snake game to get more fluency programming in JavaScript.
     * The first two games I wrote I was learning googling and reading a lot.
     * After that I stopped writting code and started to study 

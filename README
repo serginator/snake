@@ -1,0 +1,23 @@
+    /**
+    * Snake game to get more fluency programming in JavaScript.
+    * The first two games I wrote I was learning googling and reading a lot.
+    * After that I stopped writting code and started to study 
+    * the book Javascript The Good Parts from Douglas Crockford. And when I
+    * finished it, then I started to make this one, in a complete different 
+    * way of coding. Just check the code of Space Invaders and then check this
+    * one. I think this is more clean and professional, well documented following
+    * JSDOC, and maybe using some of the best parts of this language.
+    *
+    * Current Status:
+    * Playable. There are several bugs.
+	*
+	* ToDo
+	* · Solve Insane speed (SOLVED)
+	* · If you continue when you lose 3 lifes, the game continue forever
+	*     like if you had infinite lives (SOLVED MORE OR LESS)
+	* · Try to catch more accurately the arrows (CAN'T SOLVE IT RIGHT NOW)
+	* · Show the Score and the lives.
+    *
+    * @author Sergio Ruiz
+    * @version 0.5 28-04-2011 02:52
+    */
