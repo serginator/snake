@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>JS tests</title>
+        <script type="text/javascript" src="../jquery-1.5.1.min.js"></script>
+        <script type="text/javascript">
+            function applyRandCSS(){
+                //I'll make more but for now just one.
+                var css = ["../style/style2.css"];
+                var randomFile = css[Math.round(Math.random() * (css.length-1))];
+                var ss = document.createElement("link");
+                
+                ss.type = "text/css";
+                ss.rel = "stylesheet";
+                ss.href = randomFile;
+                
+                document.getElementsByTagName("head")[0].appendChild(ss);
+            }
+            
+            applyRandCSS();
+        </script>
+    </head>
+    
+    <body>
+        <div class="content">
+            <div class="game">
+                <canvas id ="canvas" width="450" height="350">
+                        Your browser doesn't work well with HTML5. 
+                        Better use Chrome or Firefox.
+                </canvas>
+                <script type="text/javascript" defer src="snake.js"></script>
+            </div>
+            
+            <div class="homeGames">
+                <a class="home" href="../index.html"></a>
+                
+                <div class="arkanoid">
+                    <a href="../arkanoidTest/arkanoidTest.html"></a>
+                    <div>
+                        <br><br>
+                        <h2>Arkanoid 0.9<br>(WIP)</h2>
+                        <br>
+                        <p>Working on:</p><br>
+                         .Better graphics<br>
+                         .PowerUps<br>
+                    </div>
+                </div>
+                
+                <div class="spaceInvaders">
+                    <a href="../spaceInvaders/spaceInvaders.html"></a>
+                    <div>
+                        <br><br>
+                        <h2>Space Invaders 0.9<br>(WIP)<br>17-03-2011 02:00</h2>
+                        <br>
+                        <p>Working on:</p><br>
+                         .Bricks<br>
+                         .Better graphics<br>
+                         .Explosions<br>
+                         .Sound<br>
+                         .Optimization<br>
+                    </div>
+                </div>
+                
+                <div class="test">
+                    <a href="snake.html"></a>
+                    <div>
+                        <br><br>
+                        <h2>Snake<br>0.5<br>(WIP)<br>27-04-2011 14:58</h2>
+                        <br>
+                        <p>Working on:</p><br>
+                         .Solve Insane speed<br>
+                         .Solve Continues<br>
+                         .Catch arrow keys accurately<br>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="contact">
+                <a class="twitter" href="http://www.twitter.com/SeRGiNaToR"
+                                    target="_blank"></a>
+                <a class="youtube" href="http://www.youtube.com/SeRGiNaToR"
+                                    target="_blank"></a>
+                <a class="deviantArt" href="http://serginator.deviantart.com"
+                                    target="_blank"></a>
+                <a class="facebook" href="http://www.facebook.com/SeRGiNaToR"
+                                    target="_blank"></a>
+            </div>
+        </div>
+    </body>
+</html>
