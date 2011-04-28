@@ -445,6 +445,15 @@ var snakeGame = (function(){
 		};
 		
 		/**
+        * Get lives
+        *
+        * @return {int} Lives of the snake
+        */
+		this.getLives = function(){
+		    return lives;
+		}
+		
+		/**
         * Check the key pressed for the snake movement. As I have to
         * use snake, I couldn't use it outside Snake "class" so here is it.
         *
@@ -658,19 +667,6 @@ var snakeGame = (function(){
                 
                 //setScore(ctx, board, snake, ctxWidth); //Draw and set the score
                 
-                (function(ctx, board, snake, ctxWidth){ //Set the score at the bottom left
-                    ctx.fillStyle = "#8b8989";
-                    rect(ctx, 0,485,ctxWidth,15); //Create a rectangle at the bottom
-                    ctx.fillStyle = "#000000";
-                    ctx.font = "italic 400 12px/2 Unknown Font, sans-serif";
-                    ctx.fillText("Score: " + board.getScore() + "Lives: " + snake.getLives(), 10, 495);
-                    //And some credits
-                    ctx.fillText("23-4-2011", 585, 495);
-                    ctx.fillStyle = "#FF0000";
-                    ctx.fillText("Sergio Ruiz", 292, 495);
-		            return this;
-                }());
-                
             } 
             else{ //pause true
                 ctx.fillStyle = "red";
@@ -712,10 +708,10 @@ var snakeGame = (function(){
                     ctx.fillStyle = backcolor; 
                     clear(ctx, ctxWidth, ctxHeight);
                     ctx.fillStyle = "red";
-                    ctx.font = "italic 400 100px/2 Unknown Font,sans-serif";
-                    ctx.fillText("Good bye!", 100, 250);
-                    ctx.font = "italic 400 50px/2 Unknown Font, sans-serif";
-                    ctx.fillText("Thanks for playing", 100, 350);
+                    ctx.font = "italic 400 30px/2 Unknown Font,sans-serif";
+                    ctx.fillText("Good bye!", 100, 100);
+                    ctx.font = "italic 400 40px/2 Unknown Font, sans-serif";
+                    ctx.fillText("Thanks for playing", 70, 150);
                     clearInterval(intervalId);
                     nDown = false;
                 }
