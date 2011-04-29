@@ -22,7 +22,7 @@
 	* · Show the Score and the lives.
     *
     * @author Sergio Ruiz
-    * @version 0.5 28-04-2011 02:52
+    * @version 0.8 29-04-2011 02:48
     */
 var snakeGame = (function(){
     
@@ -167,15 +167,23 @@ var snakeGame = (function(){
             }
         }
         if(Key.isDown(Key.YES)){
-            if(!yDown) yDown = true;
-            else yDown = false;
+            if(!yDown){
+				yDown = true;
+			}
+            else{
+				yDown = false;
+			}
         }
         if(Key.isDown(Key.NO)){
             nDown = true;
         }
         if(Key.isDown(Key.PAUSE)){
-            if(!pause) pause = true;
-            else pause = false;
+            if(!pause){
+				pause = true;
+			}
+            else{
+				pause = false;
+			}
         }
         return this;
     };
@@ -191,9 +199,9 @@ var snakeGame = (function(){
     */
     Array.matrix = function(m, n, initial){
         var a, i, j, mat = [];
-        for(var i = 0; i < m; i++){
+        for(i = 0; i < m; i++){
             a = [];
-            for(var j = 0; j < n; j++){
+            for(j = 0; j < n; j++){
                 a[j] = initial;
             }
             mat[i] = a;
@@ -294,7 +302,6 @@ var snakeGame = (function(){
         * @return {this} To be able to chain methods
         */
         this.initBoard = function(){
-            delete boardArray;
             boardArray = Array.matrix(cols, rows, 0);
             for(var i = 0; i < cols; i++){
                 boardArray[i][0] = 1;
@@ -327,7 +334,7 @@ var snakeGame = (function(){
             }
 			return this;
         };
-    };
+    }
     
     /**
     * Construct a new Fruit object.
@@ -349,7 +356,7 @@ var snakeGame = (function(){
         */
         this.getScore = function(){
             return score;
-        }
+        };
         
         /**
         * Get posX
@@ -358,7 +365,7 @@ var snakeGame = (function(){
         */
         this.getPosX = function(){
             return posX;
-        }
+        };
         
         /**
         * Get posY
@@ -367,7 +374,7 @@ var snakeGame = (function(){
         */
         this.getPosY = function(){
             return posY;
-        }
+        };
         
         /**
         * Randomize the coordinates of the Fruit.
@@ -401,7 +408,7 @@ var snakeGame = (function(){
             board.setValue(posX, posY, 1);
 			return this;
         };
-    };
+    }
     
     /**
     * Construct a new Snake object.
@@ -454,7 +461,7 @@ var snakeGame = (function(){
         */
 		this.getLives = function(){
 		    return lives;
-		}
+		};
 		
 		/**
         * Check the key pressed for the snake movement. As I have to
@@ -556,6 +563,7 @@ var snakeGame = (function(){
                 if(lives === 0){
                     gameOver = true;
                     lives = 3;
+                    yDown = false;
                 }
                 board.initBoard();
                 posX = 6;
@@ -587,10 +595,18 @@ var snakeGame = (function(){
             if(increaseTail === 0){
                 board.setValue(tailX, tailY, 0);
                 /** @private */ var move = arrayMoves.shift();
-                if(move === 'up') tailY--;
-                else if(move === 'down') tailY++;
-                else if(move === 'left') tailX--;
-                else if(move === 'right') tailX++;
+                if(move === 'up'){
+					tailY--;
+				}
+                else if(move === 'down'){
+					tailY++;
+				}
+                else if(move === 'left'){
+					tailX--;
+				}
+                else if(move === 'right'){
+					tailX++;
+				}
             }
             else{
                 increaseTail--;
@@ -614,7 +630,7 @@ var snakeGame = (function(){
             return this;
         };
         return this;
-    };
+    }
     
     /**
     * Set the score.
@@ -702,10 +718,7 @@ var snakeGame = (function(){
                 ctx.fillText("retry? (y or click, n)", 100, 250);
                 if(yDown){
                     gameOver = false;
-                    yDown = false;
                     board.setScore(0);
-                    yDown = false;
-                    return setTimeout(function(){},1000);
                 }
                 else if(nDown){ //Say good bye and end the drawing
                     ctx.fillStyle = backcolor; 
@@ -721,7 +734,7 @@ var snakeGame = (function(){
             }
         }
 		return this;
-    };
+    }
     
     /******************************************************************
                                MAIN PROGRAM
