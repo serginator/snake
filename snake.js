@@ -16,6 +16,8 @@
 	* Increased performance by more than 50% using a buffer to draw
     * outside the canvas and then drawing on the canvas just the complete image
     * of the buffer. I'll use that on every game from now on.
+    * Refactorized several things, trying to avoid some redraws, drawing just 
+    * when needed.
 	*
 	* ToDo
 	* · Solve Insane speed (SOLVED)
@@ -25,7 +27,7 @@
 	* · Show the Score and the lives during game(SOLVED)
     *
     * @author Sergio Ruiz
-    * @version 1.0 30-04-2011 11:00
+    * @version 1.1 01-05-2011 01:32
     */
 var snakeGame = (function(){
     
@@ -675,14 +677,10 @@ var snakeGame = (function(){
     */
     var setScore = function(bufferctx, board, snake, ctxWidth){ //Set the score at the bottom left
         bufferctx.fillStyle = "#8b8989";
-        rect(bufferctx, 0, 335, ctxWidth, 15); //Create a rectangle at the bottom
+        rect(bufferctx, 0, 335, 180, 15);
         bufferctx.fillStyle = "#000000";
         bufferctx.font = "italic 400 12px/2 Unknown Font, sans-serif";
         bufferctx.fillText("Score: " + board.getScore() + " // Lives: " + snake.getLives(), 10, 345);
-        //And some credits
-        bufferctx.fillText("30-4-2011", 390, 345);
-        bufferctx.fillStyle = "#FF0000";
-        bufferctx.fillText("Sergio Ruiz", 190, 345);
 		return this;
     };
     
@@ -727,6 +725,8 @@ var snakeGame = (function(){
         }
         else{ //gameOver true
             if(newGame){ //Just at the beginning of the game
+                bufferctx.fillStyle = "#8b8989";
+                rect(bufferctx, 0, 335, ctxWidth, 15); //Create a rectangle at the bottom
                 bufferctx.font = "italic 400 50px/2 Unknown Font, sans-serif";
                 bufferctx.fillStyle = "white";
                 bufferctx.fillText("Snake", 20, 200); 
@@ -737,6 +737,10 @@ var snakeGame = (function(){
                 bufferctx.fillText("Pause: P", 150, 80);
     	        bufferctx.font = "italic 400 20px/2 Unknown Font, sans-serif";
                 bufferctx.fillText("Press space", 270, 230);
+                bufferctx.font = "italic 400 12px/2 Unknown Font, sans-serif";
+                bufferctx.fillText("01-05-2011", 385, 345);
+                bufferctx.fillStyle = "#FF0000";
+                bufferctx.fillText("Sergio Ruiz", 190, 345);
             }
             else{ //If you lose
                 bufferctx.fillStyle = "red";
