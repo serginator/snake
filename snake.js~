@@ -490,7 +490,7 @@ var snakeGame = (function(){
 		    lives = l;
 		};
 		
-        /**
+		/**
         * Check the key pressed for the snake movement. As I have to
         * use snake, I couldn't use it outside Snake "class" so here is it.
         *
