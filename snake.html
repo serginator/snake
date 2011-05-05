@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <link type="text/plain" rel="author" href="../humans.txt" />
+        <meta charset="UTF-8"/>
+        <link type="text/plain" rel="author" href="../humans.txt"/>
         <title>JS tests</title>
-        <script type="text/javascript" src="../jquery-1.5.1.min.js"></script>
         <script type="text/javascript">
-            function applyRandCSS(){
+            var applyRandCSS = (function(){
                 //I'll make more but for now just one.
                 var css = ["../style/style2.css"];
                 var randomFile = css[Math.round(Math.random() * (css.length-1))];
@@ -17,9 +16,7 @@
                 ss.href = randomFile;
                 
                 document.getElementsByTagName("head")[0].appendChild(ss);
-            }
-            
-            applyRandCSS();
+            }());
         </script>
     </head>
     

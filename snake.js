@@ -700,7 +700,7 @@ var snakeGame = (function(){
     */
     function draw(bufferctx, ctx, buffer, ctxWidth, ctxHeight, board, snake, fruit){ //Draw the canvas
         //First clean the screen
-        bufferctx.fillStyle = backcolor; 
+        bufferctx.fillStyle = backcolor;
         clear(bufferctx, ctxWidth, ctxHeight);
         clear(ctx, ctxWidth, ctxHeight);
         checkGameKeys();
@@ -709,12 +709,12 @@ var snakeGame = (function(){
             if(!pause){
                 board.drawBoard(bufferctx);
                 
-                if(snake.moveSnake(board, fruit)){ 
+                if(snake.moveSnake(board, fruit)){
                     snake.moveTail(board);
                 }
                 
                 setScore(bufferctx, board, snake, ctxWidth); //Draw and set the score
-            } 
+            }
             else{ //pause true
                 bufferctx.fillStyle = "red";
                 bufferctx.font = "italic 400 30px/2 Unknown Font, sans-serif";
@@ -729,7 +729,7 @@ var snakeGame = (function(){
                 rect(bufferctx, 0, 335, ctxWidth, 15); //Create a rectangle at the bottom
                 bufferctx.font = "italic 400 50px/2 Unknown Font, sans-serif";
                 bufferctx.fillStyle = "white";
-                bufferctx.fillText("Snake", 20, 200); 
+                bufferctx.fillText("Snake", 20, 200);
                 bufferctx.font = "italic 400 20px/2 Unknown Font, sans-serif";
                 bufferctx.fillText("by Sergio Ruiz. 2011", 20, 230);
                 bufferctx.fillStyle = "red";
@@ -755,7 +755,7 @@ var snakeGame = (function(){
                     board.setScore(0);
                 }
                 else if(nDown){ //Say good bye and end the drawing
-                    bufferctx.fillStyle = backcolor; 
+                    bufferctx.fillStyle = backcolor;
                     clear(bufferctx, ctxWidth, ctxHeight);
                     bufferctx.fillStyle = "red";
                     bufferctx.font = "italic 400 30px/2 Unknown Font,sans-serif";
@@ -769,7 +769,7 @@ var snakeGame = (function(){
         }
         //Copy the image of the buffer (invisible) to the 
         //canvas context (visible)
-        ctx.drawImage(buffer, 0, 0); 
+        ctx.drawImage(buffer, 0, 0);
 		return this;
     }
     
@@ -803,7 +803,7 @@ var snakeGame = (function(){
         ctxWidth = buffer.width;
         ctxHeight = buffer.height - 15; //because of the bottom bar with Score
         
-        board = new Board(bufferctx); //Init the Board     
+        board = new Board(bufferctx); //Init the Board
         board.initBoard();
         fruit = new Fruit(board); //Init the Fruit
         snake = new Snake(board, fruit); //Init the Snake
@@ -813,5 +813,5 @@ var snakeGame = (function(){
         intervalId = setInterval(function(){draw(bufferctx, ctx, buffer, ctxWidth, ctxHeight, board, snake, fruit)}, 50);
         return intervalId;
     }(buffer, bufferctx, canvas, ctx, ctxWidth, ctxHeight, board, snake, fruit));
-    
-})();
+
+}());
